@@ -1,5 +1,4 @@
-import { auth, db, doc, getDoc, updateDoc, serverTimestamp, signOut } from "./lib/firebase";
-import { onAuthStateChanged } from "firebase/auth";
+document.body.innerHTML = "<h1>App is loading</h1>";
 
 let currentUser = null;
 
@@ -97,13 +96,4 @@ function recordAnswer(choice, level, questionObj) {
 window.flagQuestion = flagQuestion;
 window.recordAnswer = recordAnswer;
 
-onAuthStateChanged(auth, user => {
-  if (user) {
-    currentUser = user;
-    loadUserData(user.uid);
-    // Auto-save progress on login as requested
-    saveProgress(user.uid);
-  } else {
-    currentUser = null;
-  }
-});
+
